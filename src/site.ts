@@ -1,6 +1,7 @@
 export const EMAIL = 'zarars@gmail.com';
 export const NAV = [
   { href: '/services/', label: 'Services' },
+  { href: '/work/', label: 'Work' },
   { href: '/about/', label: 'About' },
   { href: '/blog/', label: 'Blog' },
   { href: '/notes/', label: 'Notes' },

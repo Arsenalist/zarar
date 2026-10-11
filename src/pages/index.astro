@@ -4,23 +4,33 @@ import { published } from '../posts';
 import { fmtDate } from '../site';
 const posts = (await published('blog')).slice(0, 5);
 const notes = (await published('notes')).slice(0, 3);
+const stats = [
+  { value: '20 → 150', label: 'engineers in an org I grew, without losing delivery quality' },
+  { value: '5×', label: 'deployment frequency on a real-time payments program' },
+  { value: '~90%', label: 'AI-generated code across seven teams, governance automated' },
+  { value: '100+', label: 'repositories under automated vulnerability scanning' },
+];
 ---
 <Base>
   <section class="hero">
-    <h1 class="star">Software that survives <strong>contact with the business.</strong></h1>
-    <p>I'm Zarar. I build production systems in Elixir, bring AI into companies without the drama, and run an event ticketing platform that real money flows through every night.</p>
+    <h1 class="star">I help engineering teams ship faster with AI, <strong>without losing control.</strong></h1>
+    <p>Twenty years building and leading software teams. I've grown an engineering org from 20 to 150, and taken teams at a major North American bank to 90% AI-generated code with the change management automated, not skipped.</p>
   </section>
+
+  <ul class="stats">
+    {stats.map((s) => <li><strong>{s.value}</strong><span>{s.label}</span></li>)}
+  </ul>
 
   <section class="pitch">
     <div>
       <h2 class="star">AI that actually <strong>ships</strong></h2>
-      <p>Demos are easy. I take a one-off AI integration from "wouldn't it be cool" to running in production, with the guardrails, data handling and monitoring that make it safe to depend on.</p>
-      <a class="btn" href="/services/">What I do</a>
+      <p>Whether it's a whole engineering org adopting coding agents or one AI feature going into production, the hard part is the system around the code: specs, guardrails, review, approvals and monitoring. That's the part I do.</p>
+      <a class="btn" href="/services/">How I can help</a>
     </div>
     <div>
-      <h2 class="star">Writing about <strong>the work</strong></h2>
-      <p>I write about Elixir, AI-assisted engineering and the system around the code, mostly from things that broke in production first.</p>
-      <a class="btn" href="/blog/">The blog</a>
+      <h2 class="star">Proof, <strong>not promises</strong></h2>
+      <p>Scaling an org sevenfold, cutting security risk across hundreds of repositories, and getting teams to trust AI-generated code. Here's how each one went.</p>
+      <a class="btn" href="/work/">Selected work</a>
     </div>
   </section>
 

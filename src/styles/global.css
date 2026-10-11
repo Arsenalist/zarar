@@ -199,3 +199,15 @@ aside p + .btn { margin-top: 1rem; }
 
 /* No room for the hanging star in the narrow gutter */
 @media (max-width: 700px) { .star::before { display: none; } }
+
+/* Home proof numbers */
+.stats { list-style: none; display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); margin-bottom: 5rem; padding-block: 2rem; border-block: 2px solid var(--rule); }
+.stats li { display: grid; gap: 0.25rem; align-content: start; }
+.stats strong { font-family: var(--font-display); font-style: italic; font-weight: 800; font-size: var(--step-3); line-height: 1; color: var(--accent); }
+.stats span { font-size: 1rem; }
+
+/* Case studies */
+.case { max-width: var(--prose); padding-block: 3rem; border-bottom: 2px solid var(--rule); }
+.case:last-child { border-bottom: 0; }
+.case dl { display: grid; gap: 1.25rem; margin-top: 1.5rem; }
+.case dt { font-family: var(--font-display); font-style: italic; font-weight: 700; color: var(--star); }

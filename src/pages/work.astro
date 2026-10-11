@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+const cases = [
+  {
+    title: 'Scaling an engineering org from 20 to 150 <strong>without breaking it</strong>',
+    situation: "A global engineering services firm was ramping up fast, and its engineering organization had to grow roughly sevenfold without losing delivery quality or coherence.",
+    decision: 'Grow through a management layer rather than a flat team, hiring and developing managers and technical leads who could each own a team.',
+    did: 'Built a structure of four managers reporting to me, each with tech leads running their own teams. Owned hiring and the quality bar across our own and client teams, and kept disciplines like TDD and pairing in place as headcount climbed. Along the way, modernized in-store systems for a national retailer across 500 stores and 25,000 daily users, including offline support for stores without a connection.',
+    landed: 'A far larger organization that still delivered, with a leadership layer that could run without me in the room.',
+  },
+  {
+    title: 'Cutting security risk across <strong>hundreds of repositories</strong>',
+    situation: 'A major North American bank had hundreds of repositories, many of them old, undocumented and held together by flaky tests. That was a standing security and delivery risk.',
+    decision: 'Treat security and quality as shared infrastructure, automated and pushed to every team, rather than a manual audit.',
+    did: 'Helped build AI-assisted vulnerability scanning across 100+ repositories that routed findings to the teams that owned them. Used AI to document legacy services and replace flaky tests with deterministic, seeded-data ones, and wrote reusable tooling other teams could adopt.',
+    landed: 'Lower security exposure across the codebase, and a repeatable modernization pattern teams could reuse.',
+  },
+  {
+    title: 'Getting seven teams to <strong>90% AI-generated code</strong>',
+    situation: 'Rolling AI out across the organization meant changing how teams worked day to day, including the heavy governance around change management, approvals and sign-offs where adoption usually stalls.',
+    decision: 'Teach by working alongside teams, and automate the governance rather than route around it.',
+    did: 'Ran repeated full-day mobbing sessions with seven teams on spec-driven development and tooling, and automated deployment approvals, sign-offs and DORA reporting.',
+    landed: 'Teams reached roughly 90% AI-generated code, delivered faster and with higher quality, and governance stopped slowing delivery down.',
+  },
+];
+---
+<Base title="Work" description="Selected work: scaling an engineering org, cutting security risk across hundreds of repositories, and getting teams to 90% AI-generated code.">
+  <section class="hero">
+    <h1 class="star">Selected <strong>work</strong></h1>
+    <p>Three engagements, told the way I'd tell them over coffee: what was going on, what I decided, what I did, and where it landed.</p>
+  </section>
+  {cases.map((c) => (
+    <article class="case">
+      <h2 class="star" set:html={c.title} />
+      <dl>
+        <div><dt>The situation</dt><dd>{c.situation}</dd></div>
+        <div><dt>What I decided</dt><dd>{c.decision}</dd></div>
+        <div><dt>What I did</dt><dd>{c.did}</dd></div>
+        <div><dt>Where it landed</dt><dd>{c.landed}</dd></div>
+      </dl>
+    </article>
+  ))}
+  <p style="margin-top:3rem"><a class="btn" href="/contact/">Talk about your situation</a></p>
+</Base>

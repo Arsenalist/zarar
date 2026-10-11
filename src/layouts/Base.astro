@@ -3,7 +3,7 @@ import '../styles/global.css';
 import { NAV, EMAIL } from '../site';
 
 interface Props { title?: string; description?: string; noindex?: boolean }
-const { title, description = 'Zarar Siddiqi: software engineer, Elixir and AI integration consultant, founder of Jump.', noindex = false } = Astro.props;
+const { title, description = 'Zarar Siddiqi: engineering leader and consultant. AI adoption for engineering teams, AI integration projects, and delivery you can measure.', noindex = false } = Astro.props;
 const fullTitle = title ? `${title} · Zarar Siddiqi` : 'Zarar Siddiqi';
 const path = Astro.url.pathname;
 ---
@@ -24,7 +24,7 @@ const path = Astro.url.pathname;
     <header class="site-header">
       <div class="wrap">
         <div>
-          <p class="crumbs"><a href="/">zarar.dev</a><span class="sep" aria-hidden="true"></span><a href="https://www.jumpcomedy.com/">jumpcomedy.com</a></p>
+          <p class="crumbs"><a href="/">zarar.dev</a><span class="sep" aria-hidden="true"></span><a href="https://bitbytebit.substack.com/">Bit Byte Bit</a></p>
           {!noindex && (
             <nav class="nav" aria-label="Main">
               {NAV.map(({ href, label }) => <a href={href} aria-current={path.startsWith(href) ? 'page' : undefined}>{label}</a>)}

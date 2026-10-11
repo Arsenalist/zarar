@@ -10,7 +10,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "proposal": "node scripts/new-proposal.mjs"
+    "proposal": "node scripts/new-proposal.mjs",
+    "deploy": "npm run build && cd cloudflare && npx cf deploy"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
