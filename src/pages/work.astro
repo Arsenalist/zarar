@@ -26,12 +26,12 @@ const cases = [
 ---
 <Base title="Work" description="Selected work: scaling an engineering org, cutting security risk across hundreds of repositories, and getting teams to 90% AI-generated code.">
   <section class="hero">
-    <h1 class="star">Selected <strong>work</strong></h1>
+    <h1>Selected <strong>work</strong></h1>
     <p>Three engagements, told the way I'd tell them over coffee: what was going on, what I decided, what I did, and where it landed.</p>
   </section>
   {cases.map((c) => (
     <article class="case">
-      <h2 class="star" set:html={c.title} />
+      <h2 set:html={c.title} />
       <dl>
         <div><dt>The situation</dt><dd>{c.situation}</dd></div>
         <div><dt>What I decided</dt><dd>{c.decision}</dd></div>

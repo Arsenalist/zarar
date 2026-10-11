@@ -15,7 +15,7 @@ const path = Astro.url.pathname;
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     {noindex ? <meta name="robots" content="noindex, nofollow" /> : <link rel="canonical" href={new URL(path, Astro.site)} />}
-    <meta name="theme-color" content="#fbf6ea" />
+    <meta name="theme-color" content="#f2f6f3" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title="Zarar's blog" href="/feed.xml" />
     <link rel="alternate" type="application/rss+xml" title="Zarar's notes" href="/notes/feed.xml" />
@@ -23,15 +23,12 @@ const path = Astro.url.pathname;
   <body>
     <header class="site-header">
       <div class="wrap">
-        <div>
-          <p class="crumbs"><a href="/">zarar.dev</a><span class="sep" aria-hidden="true"></span><a href="https://bitbytebit.substack.com/">Bit Byte Bit</a></p>
-          {!noindex && (
-            <nav class="nav" aria-label="Main">
-              {NAV.map(({ href, label }) => <a href={href} aria-current={path.startsWith(href) ? 'page' : undefined}>{label}</a>)}
-            </nav>
-          )}
-        </div>
-        <a class="blob" href="/" aria-label="Home"><span>Zarar<small>Siddiqi</small></span></a>
+        {!noindex ? (
+          <nav class="nav" aria-label="Main">
+            {NAV.map(({ href, label }) => <a href={href} aria-current={path.startsWith(href) ? 'page' : undefined}>{label}</a>)}
+          </nav>
+        ) : <span />}
+        <a class="stamp" href="/" aria-label="Home">Zarar<small>Siddiqi</small></a>
       </div>
     </header>
     <main class="wrap"><slot /></main>

@@ -7,14 +7,14 @@ const notes = (await published('notes')).slice(0, 3);
 const stats = [
   { value: '20 → 150', label: 'engineers in an org I grew, without losing delivery quality' },
   { value: '5×', label: 'deployment frequency on a real-time payments program' },
-  { value: '~90%', label: 'AI-generated code across seven teams, governance automated' },
+  { value: '50+', label: 'teams shipping through one shared delivery pipeline I built' },
   { value: '100+', label: 'repositories under automated vulnerability scanning' },
 ];
 ---
 <Base>
   <section class="hero">
-    <h1 class="star">I help engineering teams ship faster with AI, <strong>without losing control.</strong></h1>
-    <p>Twenty years building and leading software teams. I've grown an engineering org from 20 to 150, and taken teams at a major North American bank to 90% AI-generated code with the change management automated, not skipped.</p>
+    <h1>I help engineering teams ship faster with AI, <strong>without losing control.</strong></h1>
+    <p>Twenty years building and leading software teams. I've grown an engineering org from 20 to 150, and lately I help teams bring AI into how they ship, with the change management automated, not skipped.</p>
   </section>
 
   <ul class="stats">
@@ -23,12 +23,12 @@ const stats = [
 
   <section class="pitch">
     <div>
-      <h2 class="star">AI that actually <strong>ships</strong></h2>
+      <h2>AI that actually <strong>ships</strong></h2>
       <p>Whether it's a whole engineering org adopting coding agents or one AI feature going into production, the hard part is the system around the code: specs, guardrails, review, approvals and monitoring. That's the part I do.</p>
       <a class="btn" href="/services/">How I can help</a>
     </div>
     <div>
-      <h2 class="star">Proof, <strong>not promises</strong></h2>
+      <h2>Proof, <strong>not promises</strong></h2>
       <p>Scaling an org sevenfold, cutting security risk across hundreds of repositories, and getting teams to trust AI-generated code. Here's how each one went.</p>
       <a class="btn" href="/work/">Selected work</a>
     </div>
@@ -36,14 +36,14 @@ const stats = [
 
   <section class="home-section cols">
     <div>
-      <h2 class="star">Latest <strong>posts</strong></h2>
+      <h2>Latest <strong>posts</strong></h2>
       <ul class="post-list compact">
         {posts.map((p) => <li><h2><a href={`/${p.id}/`}>{p.data.title}</a></h2><time class="date" datetime={p.data.date.toISOString()}>{fmtDate(p.data.date)}</time></li>)}
       </ul>
     </div>
     {notes.length > 0 && (
       <aside>
-        <h2 class="star">Recent <strong>notes</strong></h2>
+        <h2>Recent <strong>notes</strong></h2>
         <ul class="post-list compact">
           {notes.map((n) => <li><h2><a href={`/notes/${n.id}/`}>{n.data.title}</a></h2><time class="date" datetime={n.data.date.toISOString()}>{fmtDate(n.data.date)}</time></li>)}
         </ul>

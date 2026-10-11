@@ -9,12 +9,12 @@ const { title, base, items } = Astro.props;
 <Base title={title}>
   <div class="cols">
     <div>
-      <h1 class="star" style="margin-bottom:3rem">{title}</h1>
+      <h1 style="margin-bottom:3rem">{title}</h1>
       {items.length === 0 ? <p>Nothing here yet.</p> : (
         <ul class="post-list">
           {items.map((p) => (
             <li>
-              <h2 class="star"><a href={`${base}${p.id}/`}>{p.data.title}</a></h2>
+              <h2><a href={`${base}${p.id}/`}>{p.data.title}</a></h2>
               <time class="date" datetime={p.data.date.toISOString()}>{fmtDate(p.data.date)}</time>
               <p>{excerpt(p.body)}</p>
             </li>
