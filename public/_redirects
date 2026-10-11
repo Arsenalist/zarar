@@ -1,0 +1,4 @@
+/feed/ /feed.xml 301
+/feed /feed.xml 301
+/me/ /about/ 301
+/subscribe/ https://bitbytebit.substack.com/ 301

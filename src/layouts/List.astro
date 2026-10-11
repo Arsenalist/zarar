@@ -1,0 +1,27 @@
+---
+import Base from './Base.astro';
+import Sidebar from '../components/Sidebar.astro';
+import { excerpt } from '../posts';
+import { fmtDate } from '../site';
+interface Props { title: string; base: string; items: { id: string; body?: string; data: { title: string; date: Date } }[] }
+const { title, base, items } = Astro.props;
+---
+<Base title={title}>
+  <div class="cols">
+    <div>
+      <h1 class="star" style="margin-bottom:3rem">{title}</h1>
+      {items.length === 0 ? <p>Nothing here yet.</p> : (
+        <ul class="post-list">
+          {items.map((p) => (
+            <li>
+              <h2 class="star"><a href={`${base}${p.id}/`}>{p.data.title}</a></h2>
+              <time class="date" datetime={p.data.date.toISOString()}>{fmtDate(p.data.date)}</time>
+              <p>{excerpt(p.body)}</p>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+    <Sidebar />
+  </div>
+</Base>

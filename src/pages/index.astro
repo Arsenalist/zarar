@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import { published } from '../posts';
+import { fmtDate } from '../site';
+const posts = (await published('blog')).slice(0, 5);
+const notes = (await published('notes')).slice(0, 3);
+---
+<Base>
+  <section class="hero">
+    <h1 class="star">Software that survives <strong>contact with the business.</strong></h1>
+    <p>I'm Zarar. I build production systems in Elixir, bring AI into companies without the drama, and run an event ticketing platform that real money flows through every night.</p>
+  </section>
+
+  <section class="pitch">
+    <div>
+      <h2 class="star">AI that actually <strong>ships</strong></h2>
+      <p>Demos are easy. I take a one-off AI integration from "wouldn't it be cool" to running in production, with the guardrails, data handling and monitoring that make it safe to depend on.</p>
+      <a class="btn" href="/services/">What I do</a>
+    </div>
+    <div>
+      <h2 class="star">Writing about <strong>the work</strong></h2>
+      <p>I write about Elixir, AI-assisted engineering and the system around the code, mostly from things that broke in production first.</p>
+      <a class="btn" href="/blog/">The blog</a>
+    </div>
+  </section>
+
+  <section class="home-section cols">
+    <div>
+      <h2 class="star">Latest <strong>posts</strong></h2>
+      <ul class="post-list compact">
+        {posts.map((p) => <li><h2><a href={`/${p.id}/`}>{p.data.title}</a></h2><time class="date" datetime={p.data.date.toISOString()}>{fmtDate(p.data.date)}</time></li>)}
+      </ul>
+    </div>
+    {notes.length > 0 && (
+      <aside>
+        <h2 class="star">Recent <strong>notes</strong></h2>
+        <ul class="post-list compact">
+          {notes.map((n) => <li><h2><a href={`/notes/${n.id}/`}>{n.data.title}</a></h2><time class="date" datetime={n.data.date.toISOString()}>{fmtDate(n.data.date)}</time></li>)}
+        </ul>
+      </aside>
+    )}
+  </section>
+</Base>

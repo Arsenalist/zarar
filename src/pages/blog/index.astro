@@ -1,0 +1,5 @@
+---
+import List from '../../layouts/List.astro';
+import { published } from '../../posts';
+---
+<List title="Blog" base="/" items={await published('blog')} />

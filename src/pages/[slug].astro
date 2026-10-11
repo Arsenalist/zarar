@@ -1,0 +1,13 @@
+---
+import { render } from 'astro:content';
+import Article from '../layouts/Article.astro';
+import { published } from '../posts';
+
+// Posts live at the site root (/<slug>/) to keep the old Bear Blog URLs working.
+export async function getStaticPaths() {
+  return (await published('blog')).map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<Article title={post.data.title} date={post.data.date} back={{ href: '/blog/', label: 'All posts' }}><Content /></Article>

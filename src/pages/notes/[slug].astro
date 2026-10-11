@@ -1,0 +1,12 @@
+---
+import { render } from 'astro:content';
+import Article from '../../layouts/Article.astro';
+import { published } from '../../posts';
+
+export async function getStaticPaths() {
+  return (await published('notes')).map((note) => ({ params: { slug: note.id }, props: { note } }));
+}
+const { note } = Astro.props;
+const { Content } = await render(note);
+---
+<Article title={note.data.title} date={note.data.date} back={{ href: '/notes/', label: 'All notes' }}><Content /></Article>
