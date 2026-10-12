@@ -122,6 +122,8 @@ h1 a, h2 a, h3 a { color: inherit; }
   inset: 1rem 1rem auto;
   width: auto;
   max-width: none;
+  /* size to content: some iOS WebKit builds resolve the UA's height: fit-content to the full viewport */
+  height: auto;
   max-height: calc(100svh - 2rem);
   margin: 0;
   padding: 1rem 1.5rem 1.5rem;
@@ -131,7 +133,8 @@ h1 a, h2 a, h3 a { color: inherit; }
   border-radius: 4px;
   box-shadow: 5px 5px 0 var(--red);
 }
-.menu[open] { display: grid; gap: 0.5rem; }
+/* align-content: start so rows never stretch (and balloon the Close button) if the panel is taller than its content */
+.menu[open] { display: grid; gap: 0.5rem; align-content: start; }
 /* the dialog takes focus on open (not the Close button), so no ring around the panel */
 .menu:focus { outline: none; }
 .menu::backdrop { background: rgb(29 42 42 / 0.5); }
