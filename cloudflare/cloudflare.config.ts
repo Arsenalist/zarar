@@ -5,6 +5,7 @@ export default defineConfig({
   worker: {
     name: "zarar-dev",
     compatibilityDate: "2026-10-01",
+    domains: ["zarar.dev"],
     assets: { htmlHandling: "force-trailing-slash", notFoundHandling: "404-page" },
   },
 });
