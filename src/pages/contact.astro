@@ -1,17 +1,27 @@
 ---
-import Base from '../layouts/Base.astro';
-import { EMAIL } from '../site';
+import Base from "../layouts/Base.astro";
+import { EMAIL } from "../site";
 ---
+
 <Base title="Contact">
-  <h1>Say <strong>hello</strong></h1>
-  <div class="prose" style="margin-top:2rem">
-    <p>Email is best: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>. I reply within a couple of working days.</p>
-    <p>If it's about a project, it helps to include:</p>
-    <ul>
-      <li>What you're trying to achieve, and why now</li>
-      <li>What exists today (systems, team, data)</li>
-      <li>Rough timeline and budget</li>
-    </ul>
-    <p><a class="btn" href={`mailto:${EMAIL}?subject=Project%20enquiry`}>Email me</a></p>
-  </div>
+    <h1>
+        Say <strong>hello</strong>
+    </h1>
+    <div class="prose" style="margin-top:2rem">
+        <p>
+            Email is best: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>. I reply
+            within one working day.
+        </p>
+        <p>If it's about a project, it helps to include:</p>
+        <ul>
+            <li>What you're trying to achieve, and why now</li>
+            <li>What exists today (systems, team, data)</li>
+            <li>Rough timeline</li>
+        </ul>
+        <p>
+            <a class="btn" href={`mailto:${EMAIL}?subject=Project%20enquiry`}>
+                Email me
+            </a>
+        </p>
+    </div>
 </Base>

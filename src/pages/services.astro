@@ -1,28 +1,68 @@
 ---
-import Base from '../layouts/Base.astro';
+import Base from "../layouts/Base.astro";
 ---
-<Base title="Services" description="Full-stack product development, AI forward deployment, org transformation, and workshop facilitation.">
-  <h1>Services</h1>
-  <div class="services">
-    <section class="service">
-      <h2>Development, <strong>all stack</strong></h2>
-      <p>Have an idea and want it to come to life? I work with you from ideation to delivery to ensure the product doesn't just work, but has market success. I work with most frontend frameworks from Svelte to NextJS, and can work with most server-side technologies from Java, Golang, Rust to, my favourite, Elixir.</p>
+
+<Base
+    title="Services"
+    description="Full-stack product development, AI forward deployment, org transformation, and workshop facilitation."
+>
+    <h1>Services</h1>
+    <div class="services">
+        <section class="service">
+            <h2>
+                Development, <strong>all stack</strong>
+            </h2>
+            <p>
+                Have an idea and want it to come to life? I work with you from
+                ideation to delivery to ensure the product doesn't just work,
+                but has market success. I work with most frontend frameworks
+                from Svelte to NextJS, and can work with most server-side
+                technologies from Java, Golang, Rust, to my favourite, Elixir.
+            </p>
+        </section>
+        <section class="service">
+            <h2>
+                AI forward <strong>deployment</strong>
+            </h2>
+            <p>
+                I get whole teams to ship with coding agents reliably, quickly
+                and safely. I embed myself with your teams to identify and
+                address bottlenecks in the delivery process. We usually end up
+                creating harnesses tailored to your team's constraints, develop
+                deterministic guard rails, and automate processes like change
+                approvals, SRE, reporting and observability.
+            </p>
+        </section>
+        <section class="service">
+            <h2>
+                Org <strong>transformation</strong>
+            </h2>
+            <p>
+                If you're looking to scale or want to re-think how you plan and
+                approach work, get in touch. I work with product and engineering
+                leaders to examine the end-to-end value stream and test
+                co-developed hypotheses. Teams will see immediate results while
+                the org shifts safely to a better more enjoyable way of working.
+            </p>
+        </section>
+        <section class="service">
+            <h2>
+                Workshop <strong>facilitation</strong>
+            </h2>
+            <p>
+                Need to plan your quarter, year or org strategy? From customer
+                journey mapping to PI Planning, I use various design thinking
+                and facilitation approaches to guarantee that attendees get the
+                outcomes they want and make the best use of their valuable time.
+            </p>
+        </section>
+    </div>
+    <section class="services-more">
+        <h2>
+            Got something <strong>else in mind?</strong>
+        </h2>
+        <a class="btn" href="/contact/">
+            Get in touch
+        </a>
     </section>
-    <section class="service">
-      <h2>AI forward <strong>deployment</strong></h2>
-      <p>I get whole teams to ship with coding agents reliably, quickly and safely. I embed myself with your teams to identify and address bottlenecks in the delivery process. We usually end up creating harnesses tailored to your team's constraints, develop deterministic guard rails, and automate processes like change approvals, SRE, reporting and observability.</p>
-    </section>
-    <section class="service">
-      <h2>Org <strong>transformation</strong></h2>
-      <p>If you're looking to scale or want to re-think how you plan and approach work, get in touch. I work with product and engineering leaders to examine the end-to-end value stream and test co-developed hypotheses. Teams will see immediate results while the org shifts safely to a better more enjoyable way of working.</p>
-    </section>
-    <section class="service">
-      <h2>Workshop <strong>facilitation</strong></h2>
-      <p>Need to plan your quarter, year or org strategy? From customer journey mapping to PI Planning, I use various design thinking and facilitation approaches to guarantee that attendees get the outcomes they want and make the best use of their valuable time.</p>
-    </section>
-  </div>
-  <section class="services-more">
-    <h2>Got something <strong>else in mind?</strong></h2>
-    <a class="btn" href="/contact/">Get in touch</a>
-  </section>
 </Base>
