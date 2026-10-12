@@ -38,7 +38,7 @@ const current = (href: string) => (href === '/' ? path === '/' : path.startsWith
       </div>
     </header>
     {!noindex && (
-      <dialog class="menu" id="menu" aria-label="Menu">
+      <dialog class="menu" id="menu" aria-label="Menu" tabindex="-1" autofocus>
         <button class="btn menu-toggle" type="button" data-menu-close>
           Close <svg viewBox="0 0 20 16" aria-hidden="true"><path d="M3 1l14 14M17 1L3 15" /></svg>
         </button>

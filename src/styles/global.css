@@ -79,7 +79,8 @@ h1 a, h2 a, h3 a { color: inherit; }
   box-shadow: 3px 3px 0 var(--red);
   transition: background 0.15s, color 0.15s;
 }
-.btn:hover { background: var(--ink); color: var(--paper); }
+/* hover-capable only, so a tap doesn't leave a button stuck dark on touch screens */
+@media (hover: hover) { .btn:hover { background: var(--ink); color: var(--paper); } }
 
 .wrap { width: 100%; max-width: 1440px; margin-inline: auto; padding-inline: var(--margin); }
 
@@ -131,6 +132,8 @@ h1 a, h2 a, h3 a { color: inherit; }
   box-shadow: 5px 5px 0 var(--red);
 }
 .menu[open] { display: grid; gap: 0.5rem; }
+/* the dialog takes focus on open (not the Close button), so no ring around the panel */
+.menu:focus { outline: none; }
 .menu::backdrop { background: rgb(29 42 42 / 0.5); }
 .menu > .menu-toggle { justify-self: end; }
 .menu ul { list-style: none; }
