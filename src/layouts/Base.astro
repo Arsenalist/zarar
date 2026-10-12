@@ -6,6 +6,7 @@ interface Props { title?: string; description?: string; noindex?: boolean }
 const { title, description = 'Zarar Siddiqi: engineering leader and consultant in Toronto. Building products with care, and helping teams do the same with AI in the loop.', noindex = false } = Astro.props;
 const fullTitle = title ? `${title} · Zarar Siddiqi` : 'Zarar Siddiqi';
 const path = Astro.url.pathname;
+const current = (href: string) => (href === '/' ? path === '/' : path.startsWith(href)) ? 'page' : undefined;
 ---
 <!doctype html>
 <html lang="en">
@@ -18,27 +19,42 @@ const path = Astro.url.pathname;
     <meta name="theme-color" content="#f2f6f3" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title="Zarar's blog" href="/feed.xml" />
-    <link rel="alternate" type="application/rss+xml" title="Zarar's notes" href="/notes/feed.xml" />
   </head>
   <body>
     <header class="site-header">
       <div class="wrap">
         {!noindex ? (
-          <nav class="nav" aria-label="Main">
-            {NAV.map(({ href, label }) => <a href={href} aria-current={path.startsWith(href) ? 'page' : undefined}>{label}</a>)}
-          </nav>
+          <>
+            <nav class="nav" aria-label="Main">
+              {NAV.map(({ href, label }) => <a href={href} aria-current={current(href)}>{label}</a>)}
+            </nav>
+            <button class="btn menu-toggle" type="button" aria-haspopup="dialog" aria-controls="menu" data-menu-open>
+              Menu <svg viewBox="0 0 20 16" aria-hidden="true"><path d="M1 2h18M1 8h18M1 14h18" /></svg>
+            </button>
+          </>
         ) : <span />}
         <a class="stamp" href="/" aria-label="Home">Zarar<small>Siddiqi</small></a>
       </div>
     </header>
+    {!noindex && (
+      <dialog class="menu" id="menu" aria-label="Menu">
+        <button class="btn menu-toggle" type="button" data-menu-close>
+          Close <svg viewBox="0 0 20 16" aria-hidden="true"><path d="M3 1l14 14M17 1L3 15" /></svg>
+        </button>
+        <nav aria-label="Main">
+          <ul>
+            {NAV.map(({ href, label }) => <li><a href={href} aria-current={current(href)}>{label}</a></li>)}
+          </ul>
+        </nav>
+      </dialog>
+    )}
     <main class="wrap"><slot /></main>
     <footer class="site-footer">
       <div class="wrap">
         <p>© {new Date().getFullYear()} Zarar Siddiqi · Toronto</p>
         {!noindex && (
           <ul>
-            <li><a href="/feed.xml">Blog RSS</a></li>
-            <li><a href="/notes/feed.xml">Notes RSS</a></li>
+            <li><a href="/feed.xml">RSS</a></li>
             <li><a href="https://bitbytebit.substack.com/">Subscribe by email</a></li>
             <li><a href="https://bsky.app/profile/zarar.dev">Bluesky</a></li>
             <li><a href={`mailto:${EMAIL}`}>Email</a></li>
@@ -46,5 +62,16 @@ const path = Astro.url.pathname;
         )}
       </div>
     </footer>
+    <script>
+      const menu = document.querySelector<HTMLDialogElement>('#menu');
+      if (menu) {
+        document.querySelector('[data-menu-open]')?.addEventListener('click', () => menu.showModal());
+        menu.querySelector('[data-menu-close]')?.addEventListener('click', () => menu.close());
+        // Clicking the backdrop (outside the panel) closes it
+        menu.addEventListener('click', (e) => { if (e.target === menu) menu.close(); });
+        // Widening past the breakpoint swaps back to the inline nav
+        matchMedia('(min-width: 701px)').addEventListener('change', (e) => { if (e.matches) menu.close(); });
+      }
+    </script>
   </body>
 </html>

@@ -4,8 +4,7 @@ Astro static site, deployed to Cloudflare Pages (build `npm run build`, output `
 
 - `npm run dev`: local server
 - Blog posts: `src/content/blog/<slug>.md` → `/<slug>/` (old Bear Blog URLs preserved)
-- Notes: `src/content/notes/<slug>.md` → `/notes/<slug>/`
-- `draft: true` in frontmatter hides a post/note outside dev
+- `draft: true` in frontmatter hides a post outside dev
 
 ## Proposals
 

@@ -7,11 +7,6 @@ const blog = defineCollection({
   schema: z.object({ title: z.string(), date: z.coerce.date(), draft: z.boolean().default(false) }),
 });
 
-const notes = defineCollection({
-  loader: glob({ pattern: '*.md', base: './src/content/notes' }),
-  schema: z.object({ title: z.string(), date: z.coerce.date(), draft: z.boolean().default(false) }),
-});
-
 // Proposals are reachable only by their unguessable slug: never listed, never in sitemap/feeds, noindex.
 const proposals = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/proposals' }),
@@ -23,4 +18,4 @@ const proposals = defineCollection({
   }),
 });
 
-export const collections = { blog, notes, proposals };
+export const collections = { blog, proposals };

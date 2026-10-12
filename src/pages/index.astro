@@ -3,7 +3,6 @@ import Base from '../layouts/Base.astro';
 import { published } from '../posts';
 import { fmtDate } from '../site';
 const posts = (await published('blog')).slice(0, 5);
-const notes = (await published('notes')).slice(0, 3);
 const stats = [
   { value: '20 → 150', label: 'engineers in an org I grew, without losing delivery quality' },
   { value: '5×', label: 'deployment frequency on a real-time payments program' },
@@ -28,27 +27,14 @@ const stats = [
       <p>Delivery you can measure, leadership when you need it, and AI brought into how a team works without skipping the parts that keep it safe. I work alongside your engineers, not from a slide deck.</p>
       <a class="btn" href="/services/">How I can help</a>
     </div>
-    <div>
-      <h2>Things <strong>I've built</strong></h2>
-      <p>A payments system that pays people on time, an event-management system operators actually use, ads management inside the product, and an engineering org grown sevenfold.</p>
-      <a class="btn" href="/work/">Selected work</a>
-    </div>
   </section>
 
-  <section class="home-section cols">
+  <section class="home-section">
     <div>
       <h2>Latest <strong>posts</strong></h2>
       <ul class="post-list compact">
         {posts.map((p) => <li><h2><a href={`/${p.id}/`}>{p.data.title}</a></h2><time class="date" datetime={p.data.date.toISOString()}>{fmtDate(p.data.date)}</time></li>)}
       </ul>
     </div>
-    {notes.length > 0 && (
-      <aside>
-        <h2>Recent <strong>notes</strong></h2>
-        <ul class="post-list compact">
-          {notes.map((n) => <li><h2><a href={`/notes/${n.id}/`}>{n.data.title}</a></h2><time class="date" datetime={n.data.date.toISOString()}>{fmtDate(n.data.date)}</time></li>)}
-        </ul>
-      </aside>
-    )}
   </section>
 </Base>

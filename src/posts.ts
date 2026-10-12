@@ -1,6 +1,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-export async function published<C extends 'blog' | 'notes'>(name: C) {
+export async function published<C extends 'blog'>(name: C) {
   const all = (await getCollection(name)) as CollectionEntry<C>[];
   return all.filter((p) => import.meta.env.DEV || !p.data.draft).sort((a, b) => +b.data.date - +a.data.date);
 }

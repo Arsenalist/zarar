@@ -1,10 +1,9 @@
 export const EMAIL = 'zarars@gmail.com';
 export const NAV = [
+  { href: '/', label: 'Home' },
   { href: '/services/', label: 'Services' },
-  { href: '/work/', label: 'Work' },
   { href: '/about/', label: 'About' },
   { href: '/blog/', label: 'Blog' },
-  { href: '/notes/', label: 'Notes' },
   { href: '/contact/', label: 'Contact' },
 ];
 export const fmtDate = (d: Date) =>
