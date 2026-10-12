@@ -1,40 +1,18 @@
 ---
 import Base from '../layouts/Base.astro';
-import { published } from '../posts';
-import { fmtDate } from '../site';
-const posts = (await published('blog')).slice(0, 5);
-const stats = [
-  { value: '20 → 150', label: 'engineers in an org I grew, without losing delivery quality' },
-  { value: '5×', label: 'deployment frequency on a real-time payments program' },
-  { value: '50+', label: 'teams shipping through one shared delivery pipeline I built' },
-  { value: '100+', label: 'repositories under automated vulnerability scanning' },
-];
 ---
-<Base>
-  <section class="hero">
-    <h1>Building products <strong>with care.</strong></h1>
-    <p class="sub">And lately, helping teams do the same with AI in the loop.</p>
-    <p>Twenty years building software and leading the people who build it. I've grown an engineering org from 20 to 150, shipped a payments and events platform used by thousands of events, and spent the last few years on the system around the code: the specs, guardrails, reviews and pipelines that let a team move fast and still sleep at night.</p>
-  </section>
-
-  <ul class="stats">
-    {stats.map((s) => <li><strong>{s.value}</strong><span>{s.label}</span></li>)}
-  </ul>
-
-  <section class="pitch">
-    <div>
-      <h2>Help for <strong>your team</strong></h2>
-      <p>Delivery you can measure, leadership when you need it, and AI brought into how a team works without skipping the parts that keep it safe. I work alongside your engineers, not from a slide deck.</p>
-      <a class="btn" href="/services/">How I can help</a>
-    </div>
-  </section>
-
-  <section class="home-section">
-    <div>
-      <h2>Latest <strong>posts</strong></h2>
-      <ul class="post-list compact">
-        {posts.map((p) => <li><h2><a href={`/${p.id}/`}>{p.data.title}</a></h2><time class="date" datetime={p.data.date.toISOString()}>{fmtDate(p.data.date)}</time></li>)}
-      </ul>
-    </div>
-  </section>
+<Base sidebar={false}>
+  <h1 class="visually-hidden">Zarar Siddiqi</h1>
+  <div class="home">
+    <section>
+      <h2>Build things <strong>people love</strong></h2>
+      <p>I'm happy when people are happy with the software I make. It's because it's fast, self-evident and even solves problems that they didn't know they had. If you share that feeling, then let's build something beautiful together.</p>
+      <a class="btn" href="/services/">Let's Start</a>
+    </section>
+    <section>
+      <h2>Ideas, opinions <strong>and rants</strong></h2>
+      <p>I mainly write for two reasons: 1) share things I've learned, 2) help me clear up my thinking on what I actually believe. I find writing to be cathartic and helps me clear up my thoughts.</p>
+      <a class="btn" href="/blog/">Bloggity Blog</a>
+    </section>
+  </div>
 </Base>

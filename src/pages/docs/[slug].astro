@@ -1,0 +1,20 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { fmtDate } from '../../site';
+
+export async function getStaticPaths() {
+  return (await getCollection('docs')).map((doc) => ({ params: { slug: doc.id }, props: { doc } }));
+}
+const { doc } = Astro.props;
+const { title, date, preparedFor } = doc.data;
+const { Content } = await render(doc);
+---
+<Base title={title} noindex>
+  <h1>{title}</h1>
+  <p class="doc-meta">
+    {preparedFor && <span>Prepared for {preparedFor} by Zarar Siddiqi</span>}
+    <span>{fmtDate(date)}</span>
+  </p>
+  <div class="prose"><Content /></div>
+</Base>

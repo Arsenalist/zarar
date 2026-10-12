@@ -10,7 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "proposal": "node scripts/new-proposal.mjs",
+    "doc": "node scripts/new-doc.mjs",
     "deploy": "npm run build && cd cloudflare && npx cf deploy"
   },
   "dependencies": {

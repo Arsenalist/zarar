@@ -1,9 +1,10 @@
 ---
 import '../styles/global.css';
+import Sidebar from '../components/Sidebar.astro';
 import { NAV, EMAIL } from '../site';
 
-interface Props { title?: string; description?: string; noindex?: boolean }
-const { title, description = 'Zarar Siddiqi: engineering leader and consultant in Toronto. Building products with care, and helping teams do the same with AI in the loop.', noindex = false } = Astro.props;
+interface Props { title?: string; description?: string; noindex?: boolean; sidebar?: boolean }
+const { title, description = 'Zarar Siddiqi: engineering leader and consultant in Toronto. Building products with care, and helping teams do the same with AI in the loop.', noindex = false, sidebar = !noindex } = Astro.props;
 const fullTitle = title ? `${title} · Zarar Siddiqi` : 'Zarar Siddiqi';
 const path = Astro.url.pathname;
 const current = (href: string) => (href === '/' ? path === '/' : path.startsWith(href)) ? 'page' : undefined;
@@ -48,7 +49,14 @@ const current = (href: string) => (href === '/' ? path === '/' : path.startsWith
         </nav>
       </dialog>
     )}
-    <main class="wrap"><slot /></main>
+    <main class="wrap">
+      {sidebar ? (
+        <div class="cols">
+          <div><slot /></div>
+          <Sidebar />
+        </div>
+      ) : <slot />}
+    </main>
     <footer class="site-footer">
       <div class="wrap">
         <p>© {new Date().getFullYear()} Zarar Siddiqi · Toronto</p>
