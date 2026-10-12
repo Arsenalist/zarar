@@ -3,7 +3,7 @@ import '../styles/global.css';
 import { NAV, EMAIL } from '../site';
 
 interface Props { title?: string; description?: string; noindex?: boolean }
-const { title, description = 'Zarar Siddiqi: engineering leader and consultant. AI adoption for engineering teams, AI integration projects, and delivery you can measure.', noindex = false } = Astro.props;
+const { title, description = 'Zarar Siddiqi: engineering leader and consultant in Toronto. Building products with care, and helping teams do the same with AI in the loop.', noindex = false } = Astro.props;
 const fullTitle = title ? `${title} · Zarar Siddiqi` : 'Zarar Siddiqi';
 const path = Astro.url.pathname;
 ---

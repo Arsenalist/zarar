@@ -2,43 +2,46 @@
 import Base from '../layouts/Base.astro';
 const cases = [
   {
+    title: 'A payments system that <strong>pays people on time</strong>',
+    body: [
+      'For a ticketing and e-commerce platform I built and run, I designed the money path end to end: card and wallet checkout across two processors, fees and taxes computed per line, refunds and partial refunds, and automated payouts to hundreds of organizers in two countries and currencies. Every dollar is traceable from the order to the settlement it landed in, which is what makes disputes and accounting boring instead of dramatic.',
+      'The interesting work was in the edges: early payouts before an event with a true-up afterwards, foreign-currency settlement that fails closed rather than guessing, and reconciliation that catches drift between the processor and the ledger before a customer does.',
+    ],
+  },
+  {
+    title: 'An event-management system <strong>operators actually use</strong>',
+    body: [
+      'The same platform runs live events from announcement to door: showtimes, tiered and time-limited pricing, seated venues with interactive seat maps, passes, waitlists, resale, and check-in on a phone at the door. Operators manage it from an admin that was built with them watching, so the workflows match how a venue really runs a night rather than how a database is shaped.',
+      "It's an Elixir/Phoenix system with multi-region data residency, event-sourced inventory so a seat can't be sold twice, and a small senior team shipping to it daily. Thousands of events have gone through it.",
+    ],
+  },
+  {
+    title: 'Ads management <strong>inside the product</strong>',
+    body: [
+      "Organizers were spending real money on social ads and couldn't connect it to ticket sales. I built an ads layer into the platform: campaigns created and published from the event page, pixel and server-side conversion tracking wired to actual purchases, and reporting that shows what an ad made, not just what it cost.",
+      'The hard part was the integration surface: a third-party ads API that changes under you, half-published states to recover from, and attribution that stays honest when a customer sees an ad on one device and buys on another.',
+    ],
+  },
+  {
     title: 'Scaling an engineering org from 20 to 150 <strong>without breaking it</strong>',
-    situation: "A global engineering services firm was ramping up fast, and its engineering organization had to grow roughly sevenfold without losing delivery quality or coherence.",
-    decision: 'Grow through a management layer rather than a flat team, hiring and developing managers and technical leads who could each own a team.',
-    did: 'Built a structure of four managers reporting to me, each with tech leads running their own teams. Owned hiring and the quality bar across our own and client teams, and kept disciplines like TDD and pairing in place as headcount climbed. Along the way, modernized in-store systems for a national retailer across 500 stores and 25,000 daily users, including offline support for stores without a connection.',
-    landed: 'A far larger organization that still delivered, with a leadership layer that could run without me in the room.',
-  },
-  {
-    title: 'Cutting security risk across <strong>hundreds of repositories</strong>',
-    situation: 'A major North American bank had hundreds of repositories, many of them old, undocumented and held together by flaky tests. That was a standing security and delivery risk.',
-    decision: 'Treat security and quality as shared infrastructure, automated and pushed to every team, rather than a manual audit.',
-    did: 'Helped build AI-assisted vulnerability scanning across 100+ repositories that routed findings to the teams that owned them. Used AI to document legacy services and replace flaky tests with deterministic, seeded-data ones, and wrote reusable tooling other teams could adopt.',
-    landed: 'Lower security exposure across the codebase, and a repeatable modernization pattern teams could reuse.',
-  },
-  {
-    title: 'Getting seven teams to <strong>90% AI-generated code</strong>',
-    situation: 'Rolling AI out across the organization meant changing how teams worked day to day, including the heavy governance around change management, approvals and sign-offs where adoption usually stalls.',
-    decision: 'Teach by working alongside teams, and automate the governance rather than route around it.',
-    did: 'Ran repeated full-day mobbing sessions with seven teams on spec-driven development and tooling, and automated deployment approvals, sign-offs and DORA reporting.',
-    landed: 'Teams reached roughly 90% AI-generated code, delivered faster and with higher quality, and governance stopped slowing delivery down.',
+    body: [
+      'At a global engineering services firm, the engineering organization had to grow roughly sevenfold without losing delivery quality. I built a management layer rather than a flat team, hired and developed the managers and technical leads under it, and kept practices like TDD and pairing in place as headcount climbed. The result was a much larger organization that still delivered, with leadership that could run without me in the room.',
+    ],
   },
 ];
 ---
-<Base title="Work" description="Selected work: scaling an engineering org, cutting security risk across hundreds of repositories, and getting teams to 90% AI-generated code.">
+<Base title="Work" description="Selected work: a payments system, an event-management system, ads management built into the product, and scaling an engineering org.">
   <section class="hero">
     <h1>Selected <strong>work</strong></h1>
-    <p>Three engagements, told the way I'd tell them over coffee: what was going on, what I decided, what I did, and where it landed.</p>
+    <p>A few things I've built or led, told the way I'd tell them over coffee.</p>
   </section>
-  {cases.map((c) => (
-    <article class="case">
-      <h2 set:html={c.title} />
-      <dl>
-        <div><dt>The situation</dt><dd>{c.situation}</dd></div>
-        <div><dt>What I decided</dt><dd>{c.decision}</dd></div>
-        <div><dt>What I did</dt><dd>{c.did}</dd></div>
-        <div><dt>Where it landed</dt><dd>{c.landed}</dd></div>
-      </dl>
-    </article>
-  ))}
-  <p style="margin-top:3rem"><a class="btn" href="/contact/">Talk about your situation</a></p>
+  <div class="cases">
+    {cases.map((c) => (
+      <article class="case">
+        <h2 set:html={c.title} />
+        {c.body.map((p) => <p>{p}</p>)}
+      </article>
+    ))}
+  </div>
+  <p style="margin-top:4rem"><a class="btn" href="/contact/">Talk about your situation</a></p>
 </Base>
