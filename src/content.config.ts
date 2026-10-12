@@ -12,7 +12,7 @@ const docs = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/docs' }),
   schema: z.object({
     title: z.string(),
-    date: z.coerce.date(),
+    date: z.coerce.date().optional(),
     preparedFor: z.string().optional(),
   }),
 });

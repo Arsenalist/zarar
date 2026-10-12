@@ -14,7 +14,7 @@ const { Content } = await render(doc);
   <h1>{title}</h1>
   <p class="doc-meta">
     {preparedFor && <span>Prepared for {preparedFor} by Zarar Siddiqi</span>}
-    <span>{fmtDate(date)}</span>
+    {date && <span>{fmtDate(date)}</span>}
   </p>
   <div class="prose"><Content /></div>
 </Base>
